@@ -33,19 +33,19 @@
 (require 'ert-async)
 
 (defconst cask-test/test-path
-  (f-parent (f-this-file)))
+  (file-name-as-directory (f-parent (f-this-file))))
 
 (defconst cask-test/root-path
-  (f-parent cask-test/test-path))
+  (file-name-as-directory (f-parent cask-test/test-path)))
 
 (defconst cask-test/sandbox-path
-  (f-expand "sandbox" cask-test/test-path))
+  (f-expand "sandbox/" cask-test/test-path))
 
 (defconst cask-test/fixtures-path
-  (f-expand "fixtures" cask-test/root-path))
+  (f-expand "fixtures/" cask-test/root-path))
 
 (defconst cask-test/link-path
-  (f-expand "link" cask-test/sandbox-path))
+  (f-expand "link/" cask-test/sandbox-path))
 
 (defvar cask-test/cvs-repo-path nil)
 
