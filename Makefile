@@ -21,7 +21,7 @@ all: test
 test: unit ecukes
 
 unit:
-	$(CASK) exec ert-runner
+	$(CASK) exec ert-runner --debug
 
 ecukes:
 	$(CASK) exec ecukes
@@ -35,7 +35,7 @@ linkcheck :
 	$(SPHINX-BUILD) -b linkcheck -d $(DOCTREEDIR) $(SPHINXFLAGS) doc $(DOCBUILDDIR)/linkcheck
 
 start-server: $(SERVANT_DIR)
-	$(CASK) exec $(SERVANT) start > $(SERVANT_TMP_DIR)/servant.log 2>&1 &
+	$(CASK) exec $(SERVANT) --debug start > $(SERVANT_TMP_DIR)/servant.log 2>&1 &
 
 stop-server:
 	kill $$(cat $(SERVANT_TMP_DIR)/servant.pid)
