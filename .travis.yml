@@ -21,6 +21,6 @@ env:
 script:
   - make test
 after_failure:
-  - cat test/servant/tmp/servant.log
+  - cat servant/tmp/servant.log
 after_script:
   - make stop-server
