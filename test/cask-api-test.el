@@ -1067,6 +1067,7 @@
    (cask-install bundle)
    (let ((link-path (cask-test/link bundle 'package-c "package-c-0.0.1")))
      (cask-link-delete bundle 'package-c)
+     (f-delete link-path 'force)
      (cask-test/link bundle 'package-c "package-c-0.0.1")
      (should (f-same? (cask-dependency-path bundle 'package-c) link-path)))))
 
